@@ -42,7 +42,7 @@ class Game {
     fuels = new Group();
     powerCoins = new Group();
 
-    obstacles = new Group();
+
 
     var obstaclesPositions = [
       { x: width / 2 + 250, y: height - 800, image: obstacle2Image },
@@ -66,28 +66,15 @@ class Game {
     this.addSprites(powerCoins, 18, powerCoinImage, 0.09);
 
     //Adding obstacles sprite in the game
-    this.addSprites(
-      obstacles,
-      obstaclesPositions.length,
-      obstacle1Image,
-      0.04,
-      obstaclesPositions
-    );
+   
   }
 
-  addSprites(spriteGroup, numberOfSprites, spriteImage, scale, positions = []) {
+  addSprites(spriteGroup, numberOfSprites, spriteImage, scale) {
     for (var i = 0; i < numberOfSprites; i++) {
       var x, y;
 
       //C41 //SA
-      if (positions.length > 0) {
-        x = positions[i].x;
-        y = positions[i].y;
-        spriteImage = positions[i].image;
-      } else {
-        x = random(width / 2 + 150, width / 2 - 150);
-        y = random(-height * 4.5, height - 400);
-      }
+     
       var sprite = createSprite(x, y);
       sprite.addImage("sprite", spriteImage);
 
